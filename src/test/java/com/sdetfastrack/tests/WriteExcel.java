@@ -31,19 +31,27 @@ public class WriteExcel {
         salary1.setCellValue(200000);
 
         XSSFCell salary2 = sheet.getRow(2).createCell(3);
-        salary1.setCellValue(110000);
+        salary2.setCellValue(110000);
 
         XSSFCell salary3 = sheet.getRow(3).createCell(3);
-        salary1.setCellValue(35000);
+        salary3.setCellValue(135000);
 
         XSSFCell salary4 = sheet.getRow(4).createCell(3);
-        salary1.setCellValue(125000);
+        salary4.setCellValue(125000);
 
 
         // open to write to the file: FileInputStream --> reading
-        // save changes : FileOutputStream --> writting 
+        // save changes : FileOutputStream --> writting
 
         FileOutputStream outputStream = new FileOutputStream(filePath);
+
+        // save/write changes to the workbook
+        workbook.write(outputStream);
+
+        // close all
+        outputStream.close();
+        workbook.close();
+        fileInputStream.close();
 
 
 
