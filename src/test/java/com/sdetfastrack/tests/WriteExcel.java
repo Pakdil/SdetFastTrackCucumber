@@ -39,6 +39,16 @@ public class WriteExcel {
         XSSFCell salary4 = sheet.getRow(4).createCell(3);
         salary4.setCellValue(125000);
 
+        // TODO: Change Mary's last name to Jones
+
+        for (int rowNum = 0; rowNum < sheet.getLastRowNum(); rowNum++) {
+            if (sheet.getRow(rowNum).getCell(0).toString().equals("Mary")) {
+                sheet.getRow(rowNum).getCell(1).setCellValue("Jones");
+            }
+
+        }
+
+
 
         // open to write to the file: FileInputStream --> reading
         // save changes : FileOutputStream --> writting
@@ -52,6 +62,7 @@ public class WriteExcel {
         outputStream.close();
         workbook.close();
         fileInputStream.close();
+
 
 
 
